@@ -2,7 +2,7 @@
 from fastapi import FastAPI, Request
 import uvicorn
 from fastapi.middleware.cors import CORSMiddleware
-from rooters import sign_in, sign_up, menu, me
+from routers import sign_in, sign_up, menu, me
 from fastapi.templating import Jinja2Templates
 
 
