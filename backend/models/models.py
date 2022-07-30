@@ -14,7 +14,7 @@ class Categorie(str, enum.Enum):
     autres = "Autre"
     
 
-class user(Base):
+class User(Base):
     __tablename__ = "user"
 
     id = Column(Integer, primary_key=True, index=True)
@@ -28,9 +28,10 @@ class user(Base):
 
 
 
-class reception(Base):
+class Reception(Base):
     __tablename__ = "reception"
 
+    id = Column(Integer, primary_key=True, index=True)
     expediteur = Column(String(50))
     id_expediteur = Column(Integer)
     destinateur = Column(String(50))
