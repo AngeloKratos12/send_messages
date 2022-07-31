@@ -4,11 +4,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Send Messages</title>
+    <link href="{{ url_for('public', path='/css/style.css') }}" rel="stylesheet">
 </head>
+
+
 <body>
     <header id="head">
-        <h1> <a href="#">Send krt</a> </h1>
-        <nav> <a href="#"> <i class='fas fa-eject' style='font-size:36px'></i>  MENU</a> </nav>
+        <h3> Krt_Send </h3>
     </header>
+
+    <div id="text">
+        <p class="text"> Envoyer votre message en tout sécurité avec send_krt.</p>
+    </div>
+
+    <div id="boite_id">
+        <div>
+            <p>Bienvenue sur Send_krt</p>
+        </div>
+
+        <div>
+
+            <label for="nom">Nom:</label> <br>
+            <input type="text" name="nom" placeholder="ex: helena"> <br>
+            <br>
+            <label for="password">Mots de pass: </label> <br>
+            <input type="text" name="password" placeholder="ex: 1234">
+
+        </div>
+
+        <div>
+            <br>
+            <Button type="submit">Se connecter</Button> 
+        </div>
+        
+        <div>
+            <br>
+            <a href="#"> Mots de pass oublier</a> <br>
+            <a href="#"> Sing up</a>
+        </div>
+
+    </div>
+
+    
+
+
+
+
+
+
+
 </body>
 </html>

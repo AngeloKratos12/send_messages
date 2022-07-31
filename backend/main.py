@@ -4,12 +4,13 @@ import uvicorn
 from fastapi.middleware.cors import CORSMiddleware
 from routers import sign_in, sign_up, menu, me
 from fastapi.templating import Jinja2Templates
-
+from fastapi.staticfiles import StaticFiles
 
 
 
 app = FastAPI()
 
+app.mount("/static", StaticFiles(directory="/home/n_kratos/send_messages/frontend/"), name="public")
 templates = Jinja2Templates(directory="/home/n_kratos/send_messages/frontend")
 
 app.add_middleware(
@@ -24,7 +25,6 @@ app.include_router(sign_in.router)
 app.include_router(sign_up.router)
 app.include_router(menu.router)
 app.include_router(me.router)
-
 
 
 @app.get("/", tags=["root"], summary="Acceuil")
