@@ -10,8 +10,8 @@ from fastapi.staticfiles import StaticFiles
 
 app = FastAPI()
 
-app.mount("/static", StaticFiles(directory="/home/n_kratos/send_messages/frontend/"), name="public")
-templates = Jinja2Templates(directory="/home/n_kratos/send_messages/frontend")
+app.mount("/static", StaticFiles(directory="/home/n_kratos/send_messages/static"), name="public")
+templates = Jinja2Templates(directory="/home/n_kratos/send_messages/backend/templates")
 
 app.add_middleware(
     CORSMiddleware,

@@ -4,7 +4,7 @@ router = APIRouter(
     prefix="/menu"
 )
 
-@router.get("/reception,", summary="Boite de réception")
+@router.get("/reception", summary="Boite de réception")
 def reception():
     return {"Des nouveau":"messages"}
 

@@ -1,0 +1,43 @@
+#head {
+    background-color: blue;
+    text-align: initial;
+    padding-left: 12;
+    margin-top: -55;
+    margin-left: -12;
+    font-family:Bradley Hand, cursive;
+    padding: 0px;
+    font-size: 46px;
+    color: white;
+
+}
+
+#boite_id {
+    background-color: darkgray;
+    width: 30%;
+    padding: 30;
+    text-align: center;
+    position: fixed;
+    right: 60;
+    top: 28%;
+    border-radius: 148px 3px 148px 5px;
+    font-family: Courier, monospace;
+    font-weight: bold;
+}
+
+
+body{
+    background-image: url("/home/n_kratos/send_messages/static/images/back.jpg");
+}
+
+
+#text{
+    color: white;
+    position: fixed;
+    top: 35%;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: x-large;
+    background-color: gray;
+    border-radius: 30px 0px 30px 0px;
+    padding: 16px;
+}
