@@ -27,20 +27,25 @@
             <p>Bienvenue sur Send_krt</p>
         </div>
 
-        <div>
+        <form action="/menu/reception" method="POST">
 
-            <label for="nom">Nom:</label> <br>
-            <input type="text" name="nom" placeholder="ex: helena"> <br>
-            <br>
-            <label for="password">Mots de pass: </label> <br>
-            <input type="text" name="password" placeholder="ex: 1234">
+            <div>
 
-        </div>
+                <label for="nom">Nom:</label> <br>
+                <input type="text" name="nom" placeholder="ex: helena"> <br>
+                <br>
+                <label for="password">Mots de pass: </label> <br>
+                <input type="text" name="password" placeholder="ex: 1234">
+
+            </div>
 
         <div>
             <br>
             <Button type="submit" name="login" value="login">Se connecter</Button> 
         </div>
+
+        </form>
+            
         
         <div>
             <br>
