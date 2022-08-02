@@ -5,8 +5,8 @@ router = APIRouter(
 )
 
 @router.post("/reception", summary="Boite de réception")
-def reception(email: str = Form(...), password: str = Form(...)):
-    print(email)
+def reception(user_name: str = Form(...), password: str = Form(...)):
+    print(user_name)
     print(password)
     return {"Des nouveau":"messages"}
 

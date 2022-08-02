@@ -3,7 +3,7 @@ from pydantic import BaseModel, EmailStr, Field
 from models.models import Categorie
 
 class SignIn(BaseModel):
-    email: EmailStr = Field()
+    user_name: Str = Field(max_length=15)
     passWord: Str = Field(min_length=4)
 
 
@@ -14,3 +14,4 @@ class SingUp(BaseModel):
     categorie: Categorie
     password: Str = Field(min_length=4)
     telephone: Str = Field(max_length=20)
+
