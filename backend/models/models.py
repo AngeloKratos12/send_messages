@@ -6,8 +6,6 @@ from sqlalchemy.dialects.mysql import ENUM
 
 
 
-
-
 class Categorie(str, enum.Enum):
     male = "M"
     femme = "F"
@@ -25,7 +23,6 @@ class User(Base):
     telephone = Column(String(15))
     password = Column(String(6))
     
-
 
 
 class Reception(Base):

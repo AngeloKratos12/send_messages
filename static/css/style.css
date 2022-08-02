@@ -44,10 +44,12 @@
     margin-left: 194px;
     border-radius: 110px;
 }
+
+
 #message:hover{
     position: fixed;
-    margin-left: 124px;
-    background-color: red;
+    margin-top: 10px;
+    
 
 }
 
@@ -59,8 +61,7 @@
 
 #envoie:hover{
     position: fixed;
-    margin-left: 124px;
-    background-color: red;
+    margin-left: 50px;
 
 }
 
@@ -74,7 +75,7 @@
 
 #b_recep:hover{
     position: fixed;
-    background-color: black;
+    background-color: blue;
 }
 
 
@@ -86,3 +87,12 @@
     position: fixed;
     padding-left: 90%;
  }
+
+ #welcom_text{
+    position: fixed;
+    margin-left: 55%;
+    margin-top: 13%;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+ }
+
+ 
