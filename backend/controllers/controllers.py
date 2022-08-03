@@ -1,9 +1,12 @@
+from aifc import Error
 import email
+from http.client import HTTPException
 from unicodedata import name
 from models import models
 from db.database import engine
 from sqlalchemy.orm import sessionmaker
 from models.models import Categorie, User
+
 
 models.Base.metadata.create_all(bind=engine)
 
@@ -31,13 +34,16 @@ class InfoPersoController:
         Session = sessionmaker(bind=engine)
         session = Session()
         userV = session.query(User).filter(User.prenom == user_name)
-        if userV:
-            if password == userV.password and user_name == userV.name:
-                connexion = "validé"
-            else:
-                connexion = "!validé"
-        return connexion
+        try:
+            for row in userV:
+                if row.password == password:
+                    connexion = "validée"
+                else:
+                    connexion = "!validée"
+        
+            return connexion
 
-
+        except Exception:
+            HTTPException()
         
         

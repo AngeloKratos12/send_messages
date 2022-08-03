@@ -6,7 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Send Messages</title>
-    <link rel="stylesheet" href="/home/n_kratos/send_messages/static/css/style.css">
+    <link href="{{ url_for('public', path='/css/style.css') }}" rel="stylesheet">
+    <style>
+         #body_acc{
+                    background-image: url("{{ url_for('public', path='/images/back2.jpeg') }}");
+         }
+    </style>
 
 </head>
 <body id="body_acc">
@@ -21,7 +26,7 @@
             <div id="menu_icone">
                 <a href="#"> 
                     <nav>
-                        <img src="/home/n_kratos/send_messages/static/images/menu.png"  alt="menu" width="35px" height="32px">
+                        <img src="{{ url_for('public', path='/images/menu.png') }}"  alt="menu" width="35px" height="32px">
                     </nav>
                 </a>
 
@@ -33,14 +38,14 @@
         <div>
             <nav>
                 
-                <a href="">
-                    <img src="/home/n_kratos/send_messages/static/images/ecrire.jpg" id="message" alt="ecrire" width="257px"  height="216px">
+                <a href="http://0.0.0.0:1600/menu/new_message">
+                    <img src="{{ url_for('public', path='/images/ecrire.jpg') }}" id="message" alt="ecrire" width="257px"  height="216px">
                 </a>           
             </nav>
         </div>
         <div>
-            <a href="#"><img src="/home/n_kratos/send_messages/static/images/envoye.jpg" id="envoie" alt="envoie" width="257px"  height="216px" ></a>
-            <a href="#"><img src="/home/n_kratos/send_messages/static/images/inbox-icon-8.png" id="b_recep" alt="boite de reception" width="257px" height="216px" ></a>
+            <a href="#"><img src="{{ url_for('public', path='/images/envoye.jpg') }}" id="envoie" alt="envoie" width="257px"  height="216px" ></a>
+            <a href="#"><img src="{{ url_for('public', path='/images/inbox-icon-8.png') }}" id="b_recep" alt="boite de reception" width="257px" height="216px" ></a>
         </div>
     </div>
 
