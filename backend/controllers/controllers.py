@@ -1,4 +1,5 @@
 from aifc import Error
+from ast import Try
 from datetime import date
 import email
 from http.client import HTTPException
@@ -51,48 +52,38 @@ class InfoPersoController:
         
 
 
-class EnvoieMessageController:
+class SendMessageController:
     """
         Mettre une message dans la BD
     """
     def putMessage(expediteur,destinateur, message):
         Session = sessionmaker(bind=engine)
         session = Session()
-        id_ = session.query(User.filter(User.prenom == expediteur))
-        id_destinateur = None
-        id_expediteur = None
-        time = time.strftime('%H:%M:%S', time.localtime())
+        id_ = session.query(User).filter(User.prenom == expediteur)
+        id_expediteur = Get.getId(expediteur)
+        id_destinateur = Get.getId(destinateur)
+
+        newMessage = Reception(expediteur = expediteur, id_expediteur=id_expediteur, destinateur=destinateur,
+        id_destinateur=id_destinateur,message_=message, date=datetime.datetime.today().strftime('%Y-%m-%d'), 
+        heure=time.strftime('%H:%M:%S', time.localtime()))
+        session.add(newMessage)
+        session.commit()
+
+
+class Get:
+    """
+        Récuperer les informations
+    """
+    def getId(name):
+        Session = sessionmaker(bind=engine)
+        session = Session()
+        userV = session.query(User).filter(User.prenom == name)
         try:
-            for row in id_:
-                row.id == id_expediteur
+            for row in userV:
+                id = row.id
+            return id
 
         except Exception:
             HTTPException()
         
-        id_ = session.query(User.filter(User.prenom == destinateur))
-        try:
-            for row in id_:
-                row.id == id_destinateur
 
-        except Exception:
-            HTTPException()
-
-        newMessage = Reception(expediteur = expediteur, id_expediteur=id_expediteur, destinateur=destinateur,
-        id_destinateur=id_destinateur,message=message, date=datetime.datetime.today().strftime('%Y-%m-%d'), time=time)
-
-
-
-
-
-
-class Reception(Base):
-    __tablename__ = "reception"
-
-    id = Column(Integer, primary_key=True, index=True)
-    expediteur = Column(String(50))
-    id_expediteur = Column(Integer)
-    destinateur = Column(String(50))
-    id_destinateur = Column(Integer)
-    message_ = Column(CHAR)
-    date = Column(Date, index=True)
-    heure = Column(Time)

@@ -1,7 +1,7 @@
 from typing import Optional
 from urllib import request
 from fastapi import APIRouter, Form
-from controllers.controllers import InfoPersoController
+from controllers.controllers import InfoPersoController,   SendMessageController
 from fastapi import FastAPI, Request
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
@@ -40,7 +40,7 @@ def envoye():
 
 @router.get("/new_message", summary="Envoyer un message")    
 def envoye(request:Request, destination: Optional[str] = None, message: Optional[str] = None):
-    print(user_nameV)
+    send = SendMessageController.putMessage(user_nameV,destination,message)
     return templates.TemplateResponse("newMessage.html", {"request":request})
 
 

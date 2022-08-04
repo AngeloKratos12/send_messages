@@ -24,7 +24,7 @@ def upgrade() -> None:
     sa.Column('id_expediteur', sa.Integer(), nullable=True),
     sa.Column('destinateur', sa.String(length=50), nullable=True),
     sa.Column('id_destinateur', sa.Integer(), nullable=True),
-    sa.Column('message_', sa.CHAR(), nullable=True),
+    sa.Column('message_', sa.TEXT, nullable=True),
     sa.Column('date', sa.Date(), nullable=True),
     sa.Column('heure', sa.Time(), nullable=True),
     sa.PrimaryKeyConstraint('id')

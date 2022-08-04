@@ -1,5 +1,5 @@
-from ctypes.wintypes import CHAR
-from sqlalchemy import Boolean, Column, Integer, String, Date, Time, CHAR
+
+from sqlalchemy import Boolean, Column, Integer, String, Date, Time, CHAR, TEXT
 from db.database import Base
 import enum
 from sqlalchemy.dialects.mysql import ENUM
@@ -33,7 +33,7 @@ class Reception(Base):
     id_expediteur = Column(Integer)
     destinateur = Column(String(50))
     id_destinateur = Column(Integer)
-    message_ = Column(CHAR)
+    message_ = Column(TEXT)
     date = Column(Date, index=True)
     heure = Column(Time)
     
