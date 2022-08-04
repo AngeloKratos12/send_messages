@@ -1,3 +1,4 @@
+from typing import Optional
 from urllib import request
 from fastapi import APIRouter, Form
 from controllers.controllers import InfoPersoController
@@ -19,7 +20,8 @@ router = APIRouter(
 
 @router.post("/", summary="Boite de réception")
 def reception(request : Request, user_name: str = Form(...), password: str = Form(...)):
-
+    global user_nameV
+    user_nameV = user_name
     connexion = InfoPersoController.get_info(user_name=user_name, password=password)
     if connexion == "validée":
         return templates.TemplateResponse("acceuil.html", {"request":request})
@@ -36,8 +38,9 @@ def envoye():
     return  {"moi":"last message"}
 
 
-@router.get("/new_message", summary="Envoyer un message")
-def envoye(request:Request):
+@router.get("/new_message", summary="Envoyer un message")    
+def envoye(request:Request, destination: Optional[str] = None, message: Optional[str] = None):
+    print(user_nameV)
     return templates.TemplateResponse("newMessage.html", {"request":request})
 
 
