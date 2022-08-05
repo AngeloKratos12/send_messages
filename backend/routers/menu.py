@@ -1,7 +1,7 @@
 from typing import Optional
 from urllib import request
 from fastapi import APIRouter, Form
-from controllers.controllers import InfoPersoController,   SendMessageController
+from controllers.controllers import InfoPersoController,   SendMessageController, MessageRecu
 from fastapi import FastAPI, Request
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
@@ -19,7 +19,7 @@ router = APIRouter(
 
 
 @router.post("/", summary="Boite de réception")
-def reception(request : Request, user_name: str = Form(...), password: str = Form(...)):
+def sign(request : Request, user_name: str = Form(...), password: str = Form(...)):
     global user_nameV
     user_nameV = user_name
     connexion = InfoPersoController.get_info(user_name=user_name, password=password)
@@ -28,10 +28,13 @@ def reception(request : Request, user_name: str = Form(...), password: str = For
     else:
         return {"connexion":"non validée"}
 
-@router.post("/reception", summary="Boite de réception")
+@router.get("/reception", summary="Boite de réception")
 def reception():
+    message = MessageRecu.reception(user_nameV)
+    return {"Des nouveau":message}
 
-    return {"Des nouveau":"messages"}
+
+
 
 @router.get("/message_envoye", summary="Des message envoyer")
 def envoye():

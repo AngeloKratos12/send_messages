@@ -70,14 +70,31 @@ class SendMessageController:
         session.commit()
 
 
+class MessageRecu:
+    """
+        Envoyer le message vers l'interface de l'utilisateur
+    """
+    def reception(username):
+        Session = sessionmaker(bind=engine)
+        session = Session()
+        id = Get.getId(username)
+        message = session.query(Reception).filter(Reception.id_destinateur == id)
+        listMessage = []
+        for row in message:
+            listMessage.append(row.message_)
+        return listMessage
+
+
+
+
 class Get:
     """
         Récuperer les informations
     """
-    def getId(name):
+    def getId(idf):
         Session = sessionmaker(bind=engine)
         session = Session()
-        userV = session.query(User).filter(User.prenom == name)
+        userV = session.query(User).filter(User.prenom == idf)
         try:
             for row in userV:
                 id = row.id
