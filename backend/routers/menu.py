@@ -20,20 +20,17 @@ router = APIRouter(
 
 @router.post("/", summary="Boite de réception")
 def sign(request : Request, user_name: str = Form(...), password: str = Form(...)):
-    global user_nameV
-    user_nameV = user_name
     connexion = InfoPersoController.get_info(user_name=user_name, password=password)
     if connexion == "validée":
         return templates.TemplateResponse("acceuil.html", {"request":request})
     else:
         return {"connexion":"non validée"}
 
+
 @router.get("/reception", summary="Boite de réception")
-def reception():
-    message = MessageRecu.reception(user_nameV)
+def reception(username : str):
+    message = MessageRecu.reception(username)
     return {"Des nouveau":message}
-
-
 
 
 @router.get("/message_envoye", summary="Des message envoyer")
@@ -42,10 +39,14 @@ def envoye():
 
 
 @router.get("/new_message", summary="Envoyer un message")    
-def envoye(request:Request, destination: Optional[str] = None, message: Optional[str] = None):
-    send = SendMessageController.putMessage(user_nameV,destination,message)
+def envoye(request:Request):
     return templates.TemplateResponse("newMessage.html", {"request":request})
 
+
+@router.get("/sendmessage", summary="Envoyer un message")    
+def envoye(request:Request, username : str, destination: Optional[str] = None, message: Optional[str] = None):
+    send = SendMessageController.putMessage(username,destination,message)
+    return templates.TemplateResponse("newMessage.html", {"request":request})
 
 @router.get("/membres", summary="Les des membres")
 def membre():

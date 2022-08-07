@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Send Messages</title>
     <link href="{{ url_for('public', path='/css/style.css') }}" rel="stylesheet">
+    <script  src="{{ url_for('public', path='/js/mainacc.js') }}"></script>
     <style>
          #body_acc{
                     background-image: url("{{ url_for('public', path='/images/back2.jpeg') }}");
@@ -15,6 +16,7 @@
 
 </head>
 <body id="body_acc">
+
     <header id="head">
         <h3> Krt_Send </h3>
     </header>
@@ -22,6 +24,7 @@
         <div>
             <p >
                 <h1 id="welcom_text"> Welcome to my site!! </h1>
+                <div id="resultat"><span id="somme"></span></div id="resultat">
             </p>
             <div id="menu_icone">
                 <a href="#"> 
@@ -37,6 +40,9 @@
     <div>
         <div>
             <nav>
+                <script>
+                   var user_name = username;
+                </script>
                 
                 <a href="http://0.0.0.0:1600/menu/new_message">
                     <img src="{{ url_for('public', path='/images/ecrire.jpg') }}" id="message" alt="ecrire" width="257px"  height="216px">
@@ -45,7 +51,9 @@
         </div>
         <div>
             <a href="#"><img src="{{ url_for('public', path='/images/envoye.jpg') }}" id="envoie" alt="envoie" width="257px"  height="216px" ></a>
-            <a href="http://0.0.0.0:1600/menu/reception"><img src="{{ url_for('public', path='/images/inbox-icon-8.png') }}" id="b_recep" alt="boite de reception" width="257px" height="216px" ></a>
+            <a href="http://0.0.0.0:1600/menu/reception"
+            onclick="location.href=this.href+'?username='+user_name ;return false">
+            <img src="{{ url_for('public', path='/images/inbox-icon-8.png') }}" id="b_recep" alt="boite de reception" width="257px" height="216px" ></a>
         </div>
     </div>
 

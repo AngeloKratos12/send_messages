@@ -5,12 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Send Messages</title>
+    <script  src="{{ url_for('public', path='/js/back.js') }}"></script>
     <link href="{{ url_for('public', path='/css/style.css') }}" rel="stylesheet">
     <style>
         body{
             background-image: url("{{ url_for('public', path='/images/back.jpg') }}");
         }
     </style>
+    
 
 </head>
 <body>
@@ -27,18 +29,18 @@
             <p>Bienvenue sur Send_krt</p>
         </div>
 
-        <form action="/menu/" method="POST">
+        <form action="/menu/" method="POST" id="store">
 
             <div>
 
                 <label for="nom">User name:</label> <br>
-                <input type="text" name="user_name" placeholder="ex: helena@gmail.com"> <br>
+                <input type="text" id="user_name" name="user_name" placeholder="ex: helena@gmail.com"> <br>
                 <br>
                 <label for="password">Mots de pass: </label> <br>
                 <input type="password" name="password" placeholder="ex: 1234">
 
             </div>
-
+            
         <div>
             <br>
             <Button type="submit" name="login" value="login">Se connecter</Button> 
@@ -55,6 +57,8 @@
 
     </div>
 
-
+    <script>
+        var user_name = document.getElementById("user_name").value;
+    </script>
 </body>
 </html>
