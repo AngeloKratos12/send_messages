@@ -2,7 +2,7 @@ from email import message
 from typing import Optional
 from urllib import request
 from fastapi import APIRouter, Form
-from controllers.controllers import InfoPersoController,   SendMessageController, MessageRecu
+from controllers.controllers import InfoPersoController,   SendMessageController, MessageRecu, Get
 from fastapi import FastAPI, Request
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
@@ -31,7 +31,8 @@ def sign(request : Request, user_name: str = Form(...), password: str = Form(...
 @router.get("/reception", summary="Boite de réception")
 def reception(request: Request, username : str):
     message = MessageRecu.reception(username)
-    return templates.TemplateResponse("reception.html", {"request":request, "message":message, "len":len(message)})
+    name = Get.user(username)
+    return templates.TemplateResponse("reception.html", {"request":request, "message":message, "len":len(message),"nameuser":name, "lenuser":len(name)})
 
 
 @router.get("/message_envoye", summary="Des message envoyer")

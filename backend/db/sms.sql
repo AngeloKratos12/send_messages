@@ -57,7 +57,7 @@ CREATE TABLE `reception` (
   PRIMARY KEY (`id`),
   KEY `ix_reception_date` (`date`),
   KEY `ix_reception_id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=86 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -66,7 +66,7 @@ CREATE TABLE `reception` (
 
 LOCK TABLES `reception` WRITE;
 /*!40000 ALTER TABLE `reception` DISABLE KEYS */;
-INSERT INTO `reception` VALUES (1,'angelo',NULL,NULL,NULL,NULL,'2022-08-05','00:25:36'),(2,'angelo',1,NULL,0,NULL,'2022-08-05','00:38:56'),(3,'angelo',1,NULL,0,NULL,'2022-08-05','00:44:13'),(4,'angelo',1,NULL,0,NULL,'2022-08-05','00:45:43'),(5,'angelo',1,NULL,0,NULL,'2022-08-05','01:02:14'),(6,'angelo',1,NULL,0,NULL,'2022-08-05','01:07:24'),(7,'angelo',1,'kratos',0,'n','2022-08-05','01:07:30'),(8,'angelo',1,NULL,0,NULL,'2022-08-05','01:30:16'),(9,'angelo',1,'kratos',0,'salut','2022-08-05','01:30:25'),(10,'angelo',1,NULL,0,NULL,'2022-08-05','01:36:59'),(11,'angelo',1,'get',0,'salut','2022-08-05','01:37:10'),(12,'angelo',1,NULL,NULL,NULL,'2022-08-05','01:54:41'),(13,'angelo',1,'kratos',2,'salut!!','2022-08-05','01:54:50');
+INSERT INTO `reception` VALUES (13,'angelo',1,'kratos',2,'salut!!','2022-08-05','01:54:50'),(15,'angelo',1,'kratos',2,'je suis là!!','2022-08-05','10:52:30'),(20,'kratos',2,'angelo',1,'Ouai cv!!','2022-08-05','12:20:06'),(21,'angelo',1,'angelo',1,'Qu\'est ce que tu veux!!','2022-08-05','12:21:13'),(23,'angelo',1,'kratos',2,'Non!! C\'est comme ça!!','2022-08-05','12:21:49'),(26,'angelo',1,'kratos',2,'cc','2022-08-05','12:22:58'),(28,'kratos',2,'angelo',1,'Pourqoui tu ne marce pas!!','2022-08-05','12:29:51'),(30,'kratos',2,'kratos',2,'salut mec','2022-08-05','13:49:45'),(32,'kratos',2,'angelo',1,'salut','2022-08-05','13:50:08'),(35,'angelo',1,'kratos',2,'cc','2022-08-05','20:10:10'),(43,'angelo',1,'kratos',2,'n','2022-08-07','01:15:20'),(57,'angelo',1,'kratos',2,'mande amizay','2022-08-07','15:59:43'),(58,'kratos',2,'angelo',1,'ya, mande','2022-08-07','16:00:04'),(59,'kratos',2,'angelo',1,'ya, mande','2022-08-07','16:00:19'),(60,'kratos',2,'angelo',1,'ya, mande','2022-08-07','16:00:20'),(61,'angelo',1,'kratos',2,'EO!! atero eo fa hitako!!','2022-08-07','17:17:14'),(62,'kratos',2,'angelo',1,'merci!!','2022-08-07','17:18:01'),(63,'kratos',2,'angelo',1,'de aôn ny fandean:!!','2022-08-07','17:18:42'),(64,'kratos',2,'angelo',1,'merci!!','2022-08-07','18:33:55'),(65,'kratos',2,'kratos',2,'ffffffffffffffffffffffff','2022-08-08','23:19:48'),(66,'kratos',2,'kratos',2,'ffffffffffffffffffffffff','2022-08-08','23:19:52'),(67,'kratos',2,'kratos',2,'de aôneee','2022-08-08','23:20:38'),(68,'kratos',2,'kratos',2,'de aôneee','2022-08-08','23:28:55');
 /*!40000 ALTER TABLE `reception` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -109,4 +109,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-08-05  1:56:54
+-- Dump completed on 2022-08-09  1:45:14

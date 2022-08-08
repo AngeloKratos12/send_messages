@@ -102,5 +102,27 @@ class Get:
 
         except Exception:
             HTTPException()
-        
+    
+    def user(prenom):
+        Session = sessionmaker(bind=engine)
+        session = Session()
+        idUser = Get.getId(prenom)
+        userv = session.query(Reception).filter(Reception.id_destinateur == idUser)
+        listuser = []
+        setiduser = []
+        try:
+            for row in userv:
+                setiduser.append(row.id_expediteur)
+            
+            setiduser = set(setiduser)
+            for i in setiduser:
+                user = session.query(User).filter(User.id == i)
+                for row in user:
+                    listuser.append(row.prenom)
+            return listuser
+                
+
+        except Exception:
+            HTTPException()
+
 

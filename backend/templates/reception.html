@@ -1,34 +1,30 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{{ url_for('public', path='/css/style.css') }}" rel="stylesheet">
-    <style>
-        #login{
-            position: fixed;
-            margin-left: 95%;
-            margin-top: -15vh;
-         }
-    </style>
-    <title>Reception</title>
-</head>
-<body>
-    <header id="head">
-        <h3> Krt_Send </h3>
-        <span><img id="login" src="{{ url_for('public', path='/images/login.png') }}" width="30px" alt="login"></span>
-    </header>
+{% extends "acceuil.html" %}
+{% block js %} <script  src="{{ url_for('public', path='/js/reception.js') }}"></script> {% endblock %} 
+{% block welcom %}  {% endblock %}
+{% block body %}
+    <script>
+        var user_name = username;
+    </script>
+
+    <div id="boiterecep">
+        <div>
+            {% for i in range (0,lenuser):%} 
+            <ul>
+                <li>{{nameuser[i]}}</li>
+            </ul>
+        {% endfor %} 
+        </div>
+    </div>
+    
        {% for i in range (0,len):%} 
             <ul>
                 <li>{{message[i]}}</li>
             </ul>
-        {% endfor %}        
+        {% endfor %}     
+            
      
-       
+{% endblock %}  
 
 
 
 
-
-</body>
-</html>
