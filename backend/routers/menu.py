@@ -1,3 +1,4 @@
+from email import message
 from typing import Optional
 from urllib import request
 from fastapi import APIRouter, Form
@@ -28,9 +29,9 @@ def sign(request : Request, user_name: str = Form(...), password: str = Form(...
 
 
 @router.get("/reception", summary="Boite de réception")
-def reception(username : str):
+def reception(request: Request, username : str):
     message = MessageRecu.reception(username)
-    return {"Des nouveau":message}
+    return templates.TemplateResponse("reception.html", {"request":request, "message":message, "len":len(message)})
 
 
 @router.get("/message_envoye", summary="Des message envoyer")

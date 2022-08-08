@@ -2,7 +2,7 @@
     background-color: blue;
     text-align: initial;
     padding-left: 12;
-    margin-top: -55;
+    margin-top: -4%;
     margin-left: -12;
     font-family:Bradley Hand, cursive;
     padding: 0px;
@@ -96,12 +96,15 @@
  #boite{
     text-align: center;
     margin-left: auto;
-    margin-right: auto;
-    margin-top: 10%;
-    background-color: steelblue;
+    margin-right: 5%;
+    margin-top: 6%;
+    background-color: rgba(0, 0, 0, .4);
     border-radius: 40px;
-    width: 26%;
+    width: 22%;
     padding: 2%;
+    font-weight: bold;
+   
+    
     
     
  }
@@ -123,6 +126,7 @@
  }
  #send{
     padding: 20px;
+    
  }
  #write{
     border-radius: 15px;
