@@ -113,11 +113,15 @@
    background-color: rgba(0, 0, 0, .4);
    border-radius: 40px;
    width: 22%;
+   padding: 12px;
+   
    
 
 }
     
-
+#exp:hover{
+   background-color: azure;
+}
 
  #title{
     padding: 1.2%;

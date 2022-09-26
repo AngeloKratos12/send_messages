@@ -7,21 +7,21 @@
     </script>
 
     <div id="boiterecep">
-        <div>
+        <div style="height: 78px; padding-top: 15px;">
             {% for i in range (0,lenuser):%} 
-            <ul>
-                <li>{{nameuser[i]}}</li>
+            <ul style="list-style-type: None; display: inline;">
+                <a  href="" style="color: white;">
+                    <li id="exp" style="float: left; margin-left: 16px;">
+                        <img src="{{ url_for('public', path='/images/login.png') }}" alt="pdp" width="50px"> <br>
+                        {{nameuser[i]}}
+                    </li>
+                </a>
+               
             </ul>
         {% endfor %} 
         </div>
     </div>
     
-       {% for i in range (0,len):%} 
-            <ul>
-                <li>{{message[i]}}</li>
-            </ul>
-        {% endfor %}     
-            
      
 {% endblock %}  
 

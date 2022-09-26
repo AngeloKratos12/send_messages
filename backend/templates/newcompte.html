@@ -1,0 +1,51 @@
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Messages</title>
+    <script  src="{{ url_for('public', path='/js/back.js') }}"></script>
+    <link href="{{ url_for('public', path='/css/style.css') }}" rel="stylesheet">
+    <style>
+        body{
+            background-image: url("{{ url_for('public', path='/images/back.jpg') }}");
+        }
+    </style>
+    
+
+</head>
+
+<body>
+
+    <header id="head">
+        <h3> Krt_Send </h3>
+    </header>
+
+
+    <form action="">
+        <div style=" padding: 40px;color:white; margin-left: 31%; margin-top: 10%; background-color:rgb(0, 0, 0, .4); width: 392px;">
+            <div style="display: table-cell; padding-right: 30px;">   
+                <label for="nom">Nom: </label> <br> <input type="text" name="nom"> <br> <br>
+                <label for="prenom">Prenom: </label> <br> <input type="text" name="prenom"> <br> <br>
+                <label for="email">E-mail: </label> <br> <input type="text" name="email">
+            </div>
+            <div style="display: table-cell; padding-top: 0px;">   
+                <label for="password">Password: </label> <br> <input type="password" name="password"> <br> <br>
+                <label for="confirmpassword">Confirm password: </label> <br> <input type="password" name="confirmpassword"> <br> <br> <br>
+                <select name="categorie" id=""categorie> 
+    
+                    <option value="male"> Mâle </option>
+                    <option value="femelle"> Femelle  </option>
+    
+                </select>
+            </div> <br>        
+            <input type="submit" placeholder="Envoyer">
+        </div>
+    </form>
+  
+
+
+
+    
+</body>
+</html>
