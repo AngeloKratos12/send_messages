@@ -120,6 +120,9 @@
 #exp:hover{
    background-color: rgba(0, 0, 0, .4);
 }
+#framerecep:hover{
+   background-color: rgba(0, 0, 0, .1);
+}
 
  #title{
     padding: 1.2%;
