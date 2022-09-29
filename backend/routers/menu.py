@@ -31,8 +31,16 @@ def sign(request : Request, user_name: str = Form(...), password: str = Form(...
 @router.get("/reception", summary="Boite de réception")
 def reception(request: Request, username : str):
     message = MessageRecu.reception(username)
+    print(message)
     name = Get.user(username)
-    return templates.TemplateResponse("reception.html", {"request":request, "message":message, "len":len(message),"nameuser":name, "lenuser":len(name)})
+    return templates.TemplateResponse("reception.html", {"request":request, "message":message, "len":len(message),"nameuser":name, "lenuser":len(name), "message":message })
+
+@router.get("/reception/messagerecu", summary="Boite de réception")
+def message(request: Request):
+    
+    return templates.TemplateResponse("messagerecus.html", {"request":request})
+
+
 
 
 @router.get("/message_envoye", summary="Des message envoyer")
@@ -49,6 +57,7 @@ def envoye(request:Request):
 def envoye(request:Request, username : str, destination: Optional[str] = None, message: Optional[str] = None):
     send = SendMessageController.putMessage(username,destination,message)
     return templates.TemplateResponse("newMessage.html", {"request":request})
+
 
 @router.get("/membres", summary="Les des membres")
 def membre():

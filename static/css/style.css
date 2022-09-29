@@ -88,7 +88,6 @@
 
  #welcom_text{
     position: fixed;
-    margin-left: 55%;
     margin-top: 13%;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
  }
@@ -106,8 +105,7 @@
    
    } 
 #boiterecep{
-   text-align: center;
-   margin-left: auto;
+   text-align: start;
    margin-right: 5%;
    margin-top: 6%;
    background-color: rgba(0, 0, 0, .4);
@@ -120,7 +118,7 @@
 }
     
 #exp:hover{
-   background-color: azure;
+   background-color: rgba(0, 0, 0, .4);
 }
 
  #title{

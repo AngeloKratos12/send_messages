@@ -32,7 +32,7 @@ class NewUserInsert:
 
 class InfoPersoController:
     """
-        Identifier l'utiliateur!!
+        Identifier l'utilisateur!!
     """
     def get_info(user_name, password):
         Session = sessionmaker(bind=engine)
