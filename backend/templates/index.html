@@ -9,22 +9,22 @@
     <link href="{{ url_for('public', path='/css/style.css') }}" rel="stylesheet">
     <style>
         body{
-            background-image: url("{{ url_for('public', path='/images/back.jpg') }}");
+            background-image: url("{{ url_for('public', path='/images/backt.jpeg') }}");
         }
     </style>
     
 
 </head>
 <body>
-    <header id="head">
+    <header id="head" style="background-color: rgba(0, 0, 255, 0.123);">
         <h3> Krt_Send </h3>
     </header>
 
-    <div id="text">
+    <div id="text" style="background-color: #261a1a63;">
         <p class="text"> Envoyer votre message en tout sécurité avec send_krt.</p>
     </div>
 
-    <div id="boite_id">
+    <div id="boite_id" style="background-color: #261a1a63; color:white;">
         <div>
             <p>Bienvenue sur Send_krt</p>
         </div>
@@ -34,7 +34,7 @@
             <div>
 
                 <label for="nom">User name:</label> <br>
-                <input type="text" id="user_name" name="user_name" placeholder="ex: helena@gmail.com"> <br>
+                <input type="text" id="user_name" name="user_name" placeholder="ex: helena"> <br>
                 <br>
                 <label for="password">Mots de pass: </label> <br>
                 <input type="password" name="password" placeholder="ex: 1234">

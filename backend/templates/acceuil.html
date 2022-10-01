@@ -4,6 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="{{ url_for('public', path='/css/style.css') }}" rel="stylesheet">
     {% block js %}<script  src="{{ url_for('public', path='/js/mainacc.js') }}"></script>{% endblock %}
     
     {% block style %} 
@@ -16,7 +17,7 @@
             }
             .container{
                 width: 80%;
-                margin: 0 auto; /* Center the DIV horizontally */
+                margin: 0 auto 0 265; /* Center the DIV horizontally */
             }
             .fixed-header{
                 width: 100%;
@@ -68,6 +69,10 @@
                 border-radius: 20px;
                 text-align: center;
             }
+            .bar:hover{
+                background-color: rgb(236, 112, 11);
+                border-radius: 5px;
+            }
    
    </style>
 
@@ -75,77 +80,83 @@
 
 </head>
 <body>
-    
+ 
     <div class="fixed-header">
         <div class="container">
             <nav style="float: right; ">
-                <a href="#" class="bar">HOME</a>
-                <a href="#" class="bar">SEND</a>
-                <a href="#" class="bar">MAILBOX</a>
-                <a href="#" class="bar">MENU</a>
+                {% block home %}<a href="http://0.0.0.0:1600/menu" class="bar" style="color: rgb(236, 112, 11);"> <u>HOME</u> </a> {% endblock %}
+                {% block send %}<a href="#" class="bar">SEND</a>{% endblock %}
+                {% block mailbox %}<a href="#" class="bar">MAILBOX</a>{% endblock %}
+                {% block menu %}<a href="#" class="bar">MENU</a>{% endblock %}
                 
             </nav>
         </div>
     </div>
-    
+
     <script>
         var user_name = username;
     </script>
-    <div style="background-color:#0000007d; margin-top:11%; padding:20px; padding-right:25px; width:606px; border-radius:50px; text-align:center;">
-        <ul style="list-style: none;">
-            <li>
+    <ul style="list-style: none;">
+        <li style="float: left;">
+            <div style="background-color:#0000007d; margin-top:11%; padding:20px; padding-right:25px; width:606px; border-radius:50px; text-align:center;">
                 <ul style="list-style: none;">
-                    <li style="display: inline; float:left; padding-right:113px; ">
-                        <div class="part">
-                            <a href="#" class="lienhome" >
-                                <nav><img src="{{ url_for('public', path='/images/660619.png') }}" alt="" class="imgmenu"></nav>
-                                <nav>Message sended</nav>
-                            </a>
-                            
-                        </div>
-                    </li>
-                    <li style=" padding-right:113px; padding-left:260px;">
-                        <div class="part">
-                            <a href="http://0.0.0.0:1600/menu/reception" class="lienhome" onclick="location.href=this.href+'?username='+user_name ;return false">
-                                <nav><img src="{{ url_for('public', path='/images/660619.png') }}" alt="" class="imgmenu"></nav>
-                                <nav>Mailbox</nav>
-                            </a>
+                    <li>
+                        <ul style="list-style: none;">
+                            <li style="display: inline; float:left; padding-right:113px; ">
+                                <div class="part">
+                                    <a href="#" class="lienhome" >
+                                        <nav><img src="{{ url_for('public', path='/images/660619.png') }}" alt="" class="imgmenu"></nav>
+                                        <nav>Message sended</nav>
+                                    </a>
+                                    
+                                </div>
+                            </li>
+                            <li style=" padding-right:113px; padding-left:260px;">
+                                <div class="part">
+                                    <a href="http://0.0.0.0:1600/menu/reception" class="lienhome" onclick="location.href=this.href+'?username='+user_name ;return false">
+                                        <nav><img src="{{ url_for('public', path='/images/660619.png') }}" alt="" class="imgmenu"></nav>
+                                        <nav>Mailbox</nav>
+                                    </a>
+                                   
+                                </div>
+                            </li>
+                        </ul>
+                      
+                    </li> 
+        
+                    <li>
+                        <ul style="list-style: none;">
+                            <li style="display: inline; float:left; padding-right:113px;">
+                                <div class="part">
+                                    <a href="" class="lienhome">
+                                        <nav><img src="{{ url_for('public', path='/images/660619.png') }}" alt="" class="imgmenu"></nav>
+                                        <nav>Draft</nav>
+                                    </a>
+                                    
+                                </div>
+        
+                            </li>
+        
+                            <li style="padding-right: 113px; padding-left:260px;">
+                                <div class="part">
+                                    <a href="http://0.0.0.0:1600/menu/new_message" class="lienhome">
+                                        <nav><img src="{{ url_for('public', path='/images/660619.png') }}" alt="" class="imgmenu"></nav>
+                                        <nav>Send</nav>
+                                    </a>   
+                                </div>
+                            </li>
                            
-                        </div>
+                        </ul>
                     </li>
                 </ul>
-              
-            </li> 
-
-            <li>
-                <ul style="list-style: none;">
-                    <li style="display: inline; float:left; padding-right:113px;">
-                        <div class="part">
-                            <a href="" class="lienhome">
-                                <nav><img src="{{ url_for('public', path='/images/660619.png') }}" alt="" class="imgmenu"></nav>
-                                <nav>Draft</nav>
-                            </a>
-                            
-                        </div>
-
-                    </li>
-
-                    <li style="padding-right: 113px; padding-left:260px;">
-                        <div class="part">
-                            <a href="http://0.0.0.0:1600/menu/new_message" class="lienhome">
-                                <nav><img src="{{ url_for('public', path='/images/660619.png') }}" alt="" class="imgmenu"></nav>
-                                <nav>Send</nav>
-                            </a>   
-                        </div>
-                    </li>
-                   
-                </ul>
-            </li>
-        </ul>
-        
-        
-    </div>
-    {% block body %} {% endblock %}
+                
+                
+            </div>
+        </li>
+        <li>{% block body %}{% endblock %}</li>
+    </ul>
+    
+    
     <footer class="fixed-footer" style="height: 60px;">
 
     </footer>

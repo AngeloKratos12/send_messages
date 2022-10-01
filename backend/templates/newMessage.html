@@ -1,23 +1,27 @@
 {% extends "acceuil.html" %}
 {% block js %} <script  src="{{ url_for('public', path='/js/mainacc.js') }}"></script> {% endblock %} 
 {% block welcom %}  {% endblock %}
-{%block body %}
+               
+{% block home %}<a href="http://0.0.0.0:1600/menu" class="bar" >HOME </a> {% endblock %}
+{% block send %}<a href="#" class="bar" style="color: rgb(236, 112, 11);"> <u>SEND</u> </a>{% endblock %}
+{%block body %}               
 <form  id="stock">
-    <div id="boite">
-        <div id="title">NEW MESSAGE:</div>
+    <div id="boite" style="color: white; margin-top:5%;">
+        <div id="title">NEW MESSAGE</div>
         <div id="dest">
-            <label for="destination" class="textnormal">Envoyé à:</label><br>
-        <div> 
-                <input id="enterDest" type="text" name="destination" placeholder="ex: kratos" required> 
+            <div> 
+                <input id="enterDest" type="text" name="destination" placeholder="Nom de destinataire:" style="text-align: center; background-color:rgba(255, 255, 255, 0.034); border-style:none; border-bottom:double; color:white; font-size:medium; font-weight:bold;" required> 
                 <span class="validity"></span>
             </div> 
         </div>
+        <div><input type="text" placeholder="objet:" style="text-align: center; background-color:rgba(255, 255, 255, 0.034); border-style:none; border-bottom:double; color:white; font-size:medium; font-weight:bold;"></div>
 
         <div id="message_text">
             <label for="message">Message: </label> <br>
-            <div >
+            <div>
                 <textarea name="message" id="write" cols="30" rows="8" style="resize: none;" placeholder="Votre message" required></textarea>
                 <span class="validity"></span>
+                <input type="file" style="padding-left:16px; text-overflow:ellipsis; width:237px;" multiple>
             </div>
         </div>
         <div id="send">
@@ -25,6 +29,7 @@
                 var user_name = username;
                 var messagev = message;
             </script>
+            
             <input type="submit" id="sendm" title="Envoyer" onclick="window.location.href='http://0.0.0.0:1600/menu/sendmessage?username='+ user_name
             +'&destination='+destination.value +'&message='+message.value;return false;">
         </div>

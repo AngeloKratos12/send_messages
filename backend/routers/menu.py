@@ -27,7 +27,6 @@ def sign(request : Request, user_name: str = Form(...), password: str = Form(...
     else:
         return {"connexion":"non validée"}
 
-
 @router.get("/reception", summary="Boite de réception")
 def reception(request: Request, username : str):
     message = MessageRecu.reception(username)
