@@ -10,8 +10,7 @@
 
         <style>
             body{
-                
-                background-image: url("{{ url_for('public', path='/images/backt.jpeg') }}");
+                background-image: url("/home/n_kratos/send_messages/static/images/backt.jpeg");
                 background-attachment: fixed;
             }
             .container{
@@ -88,9 +87,6 @@
         </div>
     </div>
     
-    <script>
-        var user_name = username;
-    </script>
     <div style="background-color:#0000007d; margin-top:11%; padding:20px; padding-right:25px; width:606px; border-radius:50px; text-align:center;">
         <ul style="list-style: none;">
             <li>
@@ -98,7 +94,7 @@
                     <li style="display: inline; float:left; padding-right:113px; ">
                         <div class="part">
                             <a href="#" class="lienhome" >
-                                <nav><img src="{{ url_for('public', path='/images/660619.png') }}" alt="" class="imgmenu"></nav>
+                                <nav><img src="/home/n_kratos/send_messages/static/images/660619.png" alt="" class="imgmenu"></nav>
                                 <nav>Message sended</nav>
                             </a>
                             
@@ -106,8 +102,8 @@
                     </li>
                     <li style=" padding-right:113px; padding-left:260px;">
                         <div class="part">
-                            <a href="http://0.0.0.0:1600/menu/reception" class="lienhome" onclick="location.href=this.href+'?username='+user_name ;return false">
-                                <nav><img src="{{ url_for('public', path='/images/660619.png') }}" alt="" class="imgmenu"></nav>
+                            <a href=""  class="lienhome">
+                                <nav><img src="/home/n_kratos/send_messages/static/images/660619.png" alt="" class="imgmenu"></nav>
                                 <nav>Mailbox</nav>
                             </a>
                            
@@ -122,7 +118,7 @@
                     <li style="display: inline; float:left; padding-right:113px;">
                         <div class="part">
                             <a href="" class="lienhome">
-                                <nav><img src="{{ url_for('public', path='/images/660619.png') }}" alt="" class="imgmenu"></nav>
+                                <nav><img src="/home/n_kratos/send_messages/static/images/660619.png" alt="" class="imgmenu"></nav>
                                 <nav>Draft</nav>
                             </a>
                             
@@ -132,8 +128,8 @@
 
                     <li style="padding-right: 113px; padding-left:260px;">
                         <div class="part">
-                            <a href="http://0.0.0.0:1600/menu/new_message" class="lienhome">
-                                <nav><img src="{{ url_for('public', path='/images/660619.png') }}" alt="" class="imgmenu"></nav>
+                            <a href="" class="lienhome">
+                                <nav><img src="/home/n_kratos/send_messages/static/images/660619.png" alt="" class="imgmenu"></nav>
                                 <nav>Send</nav>
                             </a>   
                         </div>
@@ -145,7 +141,7 @@
         
         
     </div>
-    {% block body %} {% endblock %}
+
     <footer class="fixed-footer" style="height: 60px;">
 
     </footer>

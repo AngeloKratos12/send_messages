@@ -2,9 +2,66 @@
 {% block js %} <script  src="{{ url_for('public', path='/js/reception.js') }}"></script> {% endblock %} 
 {% block style %} 
 <style>
-    #body_acc{
-               background-image: url("{{ url_for('public', path='/images/back2.jpeg') }}");
-    }
+    
+        body{
+            
+            background-image: url("{{ url_for('public', path='/images/backt.jpeg') }}");
+            background-attachment: fixed;
+        }
+        .container{
+            width: 80%;
+            margin: 0 auto; /* Center the DIV horizontally */
+        }
+        .fixed-header{
+            width: 100%;
+            position: fixed;        
+            background: rgba(241, 237, 237, 0.616);
+            padding: 10px 0;
+            color: rgb(0, 0, 0);
+            margin-left: -10px;
+        }
+        .fixed-header{
+            top: 0;
+        }
+        .fixed-footer{
+            bottom: 0;
+            width: 100%;       
+            background: rgba(241, 237, 237, 0.616);
+            padding: 10px 0;
+            color: rgb(0, 0, 0);
+            margin-left: -10px;
+            margin-top: 40px;
+        }    
+        /* Some more styles to beutify this example */
+        nav a{
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            padding: 7px 25px;
+            display: inline-block;
+            font-size: large;
+            font-weight: bold;
+        }
+        .imgmenu{
+            width: 150px;
+        }
+        
+        
+        .lienhome{
+            color: #0000008f;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .part:hover{
+            background-color: rgba(44, 44, 61, 0.308);
+            border-radius: 20px;
+        
+            
+        }
+        .part{
+            background-color: rgba(255, 255, 255, 0.527);
+            border-radius: 20px;
+            text-align: center;
+        }
     #login{
        position: fixed;
        margin-left: 95%;
@@ -16,6 +73,7 @@
 
 </style>
 {% endblock %}
+
 {% block welcom %}  {% endblock %}
 {% block body %}
     <script>
