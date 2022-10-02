@@ -3,7 +3,7 @@ from typing import Optional
 from urllib import request
 from fastapi import APIRouter, Form
 from controllers.controllers import InfoPersoController,   SendMessageController, MessageRecu, Get
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, File, UploadFile
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
@@ -52,9 +52,45 @@ def envoye(request:Request):
     return templates.TemplateResponse("newMessage.html", {"request":request})
 
 
-@router.get("/sendmessage", summary="Envoyer un message")    
-def envoye(request:Request, username : str, destination: Optional[str] = None, message: Optional[str] = None):
-    send = SendMessageController.putMessage(username,destination,message)
+@router.post("/sendmessage", summary="Envoyer un message")    
+async def envoye(request:Request, file:UploadFile=File(description="file as uploadfile"),destination:str=Form(...)):
+
+    
+    print(destination)
+    ext_doc = ['.docx','.pdf','.pttxt','.xlsx']
+    ext_img = ['.png','.jpeg','.jpg']
+    ext_audio = ['.mp3','.ma4']
+    ext_video = ['.mp4','.avi']
+    filename = file.filename
+    if len(filename) != 0 :
+        content_type = file.content_type
+        file = file.file
+        content_file = file.read()
+        print(len(filename))
+        for index in range(len(filename)):
+            if filename[index] == '.':
+                extension = filename[index:]
+                break
+                #print("ext",extension)
+            else:
+                pass
+        
+        if extension in ext_doc:
+            FILEPATH = './medias/DOCS/'
+        elif extension in ext_img:
+            FILEPATH = './medias/images/'
+        elif extension in ext_audio:
+            FILEPATH = './medias/audios/'
+        elif extension in ext_video:
+            FILEPATH = './medias/videos/'
+        else:
+            FILEPATH = './medias/autres/'
+        
+        with open(FILEPATH + filename, "wb") as file:
+            file.write(content_file)
+        file.close()
+    #send = SendMessageController.putMessage(username,destination,message)
+    
     return templates.TemplateResponse("newMessage.html", {"request":request})
 
 

@@ -5,8 +5,8 @@
 {% block home %}<a href="http://0.0.0.0:1600/menu" class="bar" >HOME </a> {% endblock %}
 {% block send %}<a href="#" class="bar" style="color: rgb(236, 112, 11);"> <u>SEND</u> </a>{% endblock %}
 {%block body %}               
-<form  id="stock">
-    <div id="boite" style="color: white; margin-top:5%;">
+<form  id="stock"  action="http://0.0.0.0:1600/menu/sendmessage" method="POST" enctype="multipart/form-data">
+    <div id="boite" style="color: white; margin-top:6%; margin-right:3%; width:26%;">
         <div id="title">NEW MESSAGE</div>
         <div id="dest">
             <div> 
@@ -21,7 +21,7 @@
             <div>
                 <textarea name="message" id="write" cols="30" rows="8" style="resize: none;" placeholder="Votre message" required></textarea>
                 <span class="validity"></span>
-                <input type="file" style="padding-left:16px; text-overflow:ellipsis; width:237px;" multiple>
+                <input type="file" name="file" style="padding-left:16px; text-overflow:ellipsis; width:237px;" multiple>
             </div>
         </div>
         <div id="send">
@@ -30,8 +30,9 @@
                 var messagev = message;
             </script>
             
-            <input type="submit" id="sendm" title="Envoyer" onclick="window.location.href='http://0.0.0.0:1600/menu/sendmessage?username='+ user_name
-            +'&destination='+destination.value +'&message='+message.value;return false;">
+            <input type="submit" id="sendm" title="Envoyer"> <br>
+            <input type='button' class="btn-primary" value="Annuler" style="margin-bottom:5%;border-radius: 15px;text-align:center" onclick="window.location.reload();">
+
         </div>
         
     </div>
