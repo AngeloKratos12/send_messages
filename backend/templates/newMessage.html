@@ -5,7 +5,7 @@
 {% block home %}<a href="http://0.0.0.0:1600/menu" class="bar" >HOME </a> {% endblock %}
 {% block send %}<a href="#" class="bar" style="color: rgb(236, 112, 11);"> <u>SEND</u> </a>{% endblock %}
 {%block body %}               
-<form  id="stock"  action="http://0.0.0.0:1600/menu/sendmessage" method="POST" enctype="multipart/form-data">
+<form  id="stock"  action="http://0.0.0.0:1600/menu/sendmessage/angelo" method="POST" enctype="multipart/form-data">
     <div id="boite" style="color: white; margin-top:6%; margin-right:3%; width:26%;">
         <div id="title">NEW MESSAGE</div>
         <div id="dest">
@@ -28,9 +28,10 @@
             <script>
                 var user_name = username;
                 var messagev = message;
+                document.write('<INPUT type=hidden value="'+user_name+'" name="expediteur" id="expediteur">');
             </script>
-            
-            <input type="submit" id="sendm" title="Envoyer"> <br>
+
+            <input type="submit" id="sendm" title="Envoyer" > <br>
             <input type='button' class="btn-primary" value="Annuler" style="margin-bottom:5%;border-radius: 15px;text-align:center" onclick="window.location.reload();">
 
         </div>

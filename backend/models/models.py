@@ -1,4 +1,5 @@
 
+from operator import index
 from sqlalchemy import Boolean, Column, Integer, String, Date, Time, CHAR, TEXT
 from db.database import Base
 import enum
@@ -11,6 +12,7 @@ class Categorie(str, enum.Enum):
     femme = "F"
     autres = "Autre"
     
+
 
 class User(Base):
     __tablename__ = "user"
@@ -34,6 +36,17 @@ class Reception(Base):
     destinateur = Column(String(50))
     id_destinateur = Column(Integer)
     message_ = Column(TEXT)
+    file = Column(Integer)
+    reference = Column(String(50))
     date = Column(Date, index=True)
     heure = Column(Time)
+
+class FileSended(Base):
+    __tablename__ = "file_sended"
     
+    id = Column(Integer, primary_key=True, index=True)
+    id_expediteur = Column(Integer)
+    id_destinateur = Column(Integer)
+    filetype = Column(String(15))
+    filename = Column(String(50))
+    reference = Column(String(50))     

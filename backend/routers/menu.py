@@ -6,6 +6,7 @@ from controllers.controllers import InfoPersoController,   SendMessageController
 from fastapi import FastAPI, Request, File, UploadFile
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+import time
 
 
 app = FastAPI()
@@ -52,11 +53,12 @@ def envoye(request:Request):
     return templates.TemplateResponse("newMessage.html", {"request":request})
 
 
-@router.post("/sendmessage", summary="Envoyer un message")    
-async def envoye(request:Request, file:UploadFile=File(description="file as uploadfile"),destination:str=Form(...)):
+@router.post("/sendmessage/{expediteur}", summary="Envoyer un message")    
+async def envoye(request:Request, file:UploadFile=File(description="file as uploadfile"),destination:str=Form(...), message: str = Form(...),expediteur="angelo" ):
 
-    
     print(destination)
+    reference = destination + expediteur + time.strftime('%Y:%M:%D:%H:%M:%S', time.localtime())
+    reference = str(reference)
     ext_doc = ['.docx','.pdf','.pttxt','.xlsx']
     ext_img = ['.png','.jpeg','.jpg']
     ext_audio = ['.mp3','.ma4']
@@ -89,7 +91,13 @@ async def envoye(request:Request, file:UploadFile=File(description="file as uplo
         with open(FILEPATH + filename, "wb") as file:
             file.write(content_file)
         file.close()
-    #send = SendMessageController.putMessage(username,destination,message)
+        
+        #send = SendMessageController.putMessage(username,destination,message,1,reference)
+        sendfile = SendMessageController.putFileName(expediteur=expediteur, destinateur=destination, file_type=content_type, file_name=filename)
+    else:
+        #send = SendMessageController.putMessage(username,destination,message,0)
+        pass
+        
     
     return templates.TemplateResponse("newMessage.html", {"request":request})
 

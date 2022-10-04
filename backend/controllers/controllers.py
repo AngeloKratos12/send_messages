@@ -4,10 +4,12 @@ from datetime import date
 import email
 from http.client import HTTPException
 from unicodedata import name
+
+from fastapi import File
 from models import models
 from db.database import engine
 from sqlalchemy.orm import sessionmaker
-from models.models import Categorie, User, Reception
+from models.models import Categorie, User, Reception, FileSended
 import time
 import datetime 
 
@@ -56,7 +58,7 @@ class SendMessageController:
     """
         Mettre une message dans la BD
     """
-    def putMessage(expediteur,destinateur, message):
+    def putMessage(expediteur,destinateur, message, withfile, reference):
         Session = sessionmaker(bind=engine)
         session = Session()
         id_ = session.query(User).filter(User.prenom == expediteur)
@@ -64,9 +66,18 @@ class SendMessageController:
         id_destinateur = Get.getId(destinateur)
 
         newMessage = Reception(expediteur = expediteur, id_expediteur=id_expediteur, destinateur=destinateur,
-        id_destinateur=id_destinateur,message_=message, date=datetime.datetime.today().strftime('%Y-%m-%d'), 
+        id_destinateur=id_destinateur,message_=message, file = withfile, reference=reference, date=datetime.datetime.today().strftime('%Y-%m-%d'), 
         heure=time.strftime('%H:%M:%S', time.localtime()))
         session.add(newMessage)
+        session.commit()
+
+    def putFileName(expediteur, destinateur, file_type, file_name,reference):
+        Session = sessionmaker(bind=engine)
+        session = Session()
+        id_expediteur = Get.getId(expediteur)
+        id_destinateur = Get.getId(destinateur)
+        new_file_sended = FileSended(id_expediteur=id_expediteur,id_destinateur=id_destinateur, file_type=file_type, file_name=file_name, reference=reference)
+        session.add(new_file_sended)
         session.commit()
 
 
@@ -102,6 +113,15 @@ class Get:
 
         except Exception:
             HTTPException()
+
+    def reference(reference):
+        Session = sessionmaker(bind=engine)
+        session = Session()
+        reference = session.query(Reception).filter(Reception.reference == reference)
+       
+         
+        
+        
     
     def user(prenom):
         Session = sessionmaker(bind=engine)
@@ -124,5 +144,19 @@ class Get:
 
         except Exception:
             HTTPException()
+    
+    def filename():
+        Session = sessionmaker(bind=engine)
+        session = Session()
+        id_expediteur = Get
+        
+        
+        
+
+        
+        
+
+        
+        
 
 

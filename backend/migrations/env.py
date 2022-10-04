@@ -5,7 +5,7 @@ from alembic import context
 from db.database import Base
 from os import environ as env
 from dotenv import load_dotenv
-from models.models import Reception, User
+from models.models import Reception, User, FileSended
 
 load_dotenv()
 
